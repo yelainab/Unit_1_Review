@@ -14,12 +14,12 @@ showClock();
 setInterval("showClock()", 1000);
 
 function showClock(){
-   var thisDay = new Date(2018, 4, 19, 9, 31, 27);
+   var thisDay = new Date();
    var localDate = thisDay.toLocaleDateString();
    var localTime = thisDay.toLocaleTimeString();
    document.getElementById("currentTime").innerHTML="<span>" + localDate + "</span><span>" + localTime + "<span>";
    var j4Date = nextJuly4(thisDay);
-   
+   console.log();
    j4Date.setHours(21, 0, 0, 0);
    var days = (j4Date - thisDay)/(1000*60*60*24);
    var hrs = (days - Math.floor(days))*24;
@@ -29,7 +29,7 @@ function showClock(){
    document.getElementById("dLeft").innerHTML= Math.floor(days);
    document.getElementById("hLeft").innerHTML= Math.floor(hrs);
    document.getElementById("mLeft").innerHTML= Math.floor(mins);
-   document.getElementById("sLeft").innerHTML= Math.ceil(secs);
+   document.getElementById("sLeft").innerHTML= Math.floor(secs);
 }
 
 function nextJuly4(currentDate) {
